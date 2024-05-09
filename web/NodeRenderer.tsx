@@ -1,4 +1,4 @@
-import { Handle, Position,NodeResizer } from "reactflow";
+import { Handle, Position, NodeResizer } from "reactflow";
 import type { NodeProps } from "./types";
 import { useEditorContext } from "./context";
 import { useEffect, useRef } from "react";
