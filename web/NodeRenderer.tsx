@@ -1,4 +1,4 @@
-import { Handle, Position } from "reactflow";
+import { Handle, Position,NodeResizer } from "reactflow";
 import type { NodeProps } from "./types";
 import { useEditorContext } from "./context";
 import { useEffect, useRef } from "react";
@@ -86,66 +86,11 @@ export default ({ id, data }: NodeProps) => {
           updateNodeNote(id, e.target.value);
         }}
       />
-      <Handle
-        type="source"
-        id={nodeRendererHandleIds.top}
-        position={Position.Top}
-      />
-      <Handle
-        type="source"
-        id={nodeRendererHandleIds.right}
-        position={Position.Right}
-      />
-      <Handle
-        type="source"
-        id={nodeRendererHandleIds.bottom}
-        position={Position.Bottom}
-      />
-      <Handle
-        type="source"
-        id={nodeRendererHandleIds.left}
-        position={Position.Left}
-      />
-      <Handle
-        type="target"
-        id={nodeRendererHandleIds.top}
-        position={Position.Top}
-        style={{
-          ...targetHandleCommonStyle,
-          top: 0,
-          left: "50%",
-        }}
-      />
-      <Handle
-        type="target"
-        id={nodeRendererHandleIds.right}
-        position={Position.Right}
-        style={{
-          ...targetHandleCommonStyle,
-          top: "50%",
-          left: "100%",
-        }}
-      />
-      <Handle
-        type="target"
-        id={nodeRendererHandleIds.bottom}
-        position={Position.Bottom}
-        style={{
-          ...targetHandleCommonStyle,
-          top: "100%",
-          left: "50%",
-        }}
-      />
-      <Handle
-        type="target"
-        id={nodeRendererHandleIds.left}
-        position={Position.Left}
-        style={{
-          ...targetHandleCommonStyle,
-          top: "50%",
-          left: 0,
-        }}
-      />
+      <NodeResizer minWidth={100} minHeight={30} />
+      <Handle type="target" position={Position.Left} />
+      <Handle type="source" position={Position.Right} />
+      <Handle type="target" position={Position.Top} />
+      <Handle type="source" position={Position.Bottom} />
     </div>
   );
 };
